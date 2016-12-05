@@ -1,0 +1,50 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myReservationLabel" data-translate="gatewayApp.reservation.home.createOrEditLabel">Create or edit a Reservation</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.reservation.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.reservation.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="gatewayApp.reservation.passengerId" for="field_passengerId">Passenger Id</label>
+            <input type="number" class="form-control" name="passengerId" id="field_passengerId"
+                    ng-model="vm.reservation.passengerId"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="gatewayApp.reservation.confirmed" for="field_confirmed">Confirmed</label>
+            <input type="checkbox" class="form-control" name="confirmed" id="field_confirmed"
+                    ng-model="vm.reservation.confirmed"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="gatewayApp.reservation.cancled" for="field_cancled">Cancled</label>
+            <input type="checkbox" class="form-control" name="cancled" id="field_cancled"
+                    ng-model="vm.reservation.cancled"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label data-translate="gatewayApp.reservation.ride" for="field_ride">Ride</label>
+            <select class="form-control" id="field_ride" name="ride" ng-model="vm.reservation.ride" ng-options="ride as ride.id for ride in vm.rides track by ride.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,60 @@
+
+<div>
+    <h2><span data-translate="gatewayApp.userExtension.detail.title">User Extension</span> {{vm.userExtension.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="gatewayApp.userExtension.sex">Sex</span></dt>
+        <dd>
+            <span data-translate="{{'gatewayApp.Sex.' + vm.userExtension.sex}}">{{vm.userExtension.sex}}</span>
+        </dd>
+        <dt><span data-translate="gatewayApp.userExtension.birthdate">Birthdate</span></dt>
+        <dd>
+            <span>{{vm.userExtension.birthdate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="gatewayApp.userExtension.memberSince">Member Since</span></dt>
+        <dd>
+            <span>{{vm.userExtension.memberSince | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="gatewayApp.userExtension.firstName">First Name</span></dt>
+        <dd>
+            <span>{{vm.userExtension.firstName}}</span>
+        </dd>
+        <dt><span data-translate="gatewayApp.userExtension.lastName">Last Name</span></dt>
+        <dd>
+            <span>{{vm.userExtension.lastName}}</span>
+        </dd>
+        <dt><span data-translate="gatewayApp.userExtension.phoneNumber">Phone Number</span></dt>
+        <dd>
+            <span>{{vm.userExtension.phoneNumber}}</span>
+        </dd>
+        <dt><span data-translate="gatewayApp.userExtension.image">Image</span></dt>
+        <dd>
+            <div ng-if="vm.userExtension.image">
+                <a ng-click="vm.openFile(vm.userExtension.imageContentType, vm.userExtension.image)">
+                    <img data-ng-src="{{'data:' + vm.userExtension.imageContentType + ';base64,' + vm.userExtension.image}}" style="max-width: 100%;"/>
+                </a>
+                {{vm.userExtension.imageContentType}}, {{vm.byteSize(vm.userExtension.image)}}
+            </div>
+        </dd>
+        <dt><span data-translate="gatewayApp.userExtension.aboutMe">About Me</span></dt>
+        <dd>
+            <span>{{vm.userExtension.aboutMe}}</span>
+        </dd>
+        <dt><span data-translate="gatewayApp.userExtension.userId">User Id</span></dt>
+        <dd>
+            <span>{{vm.userExtension.userId}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="user-extension-detail.edit({id:vm.userExtension.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

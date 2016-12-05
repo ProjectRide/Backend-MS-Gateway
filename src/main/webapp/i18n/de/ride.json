@@ -1,0 +1,33 @@
+{
+    "gatewayApp": {
+        "ride" : {
+            "home": {
+                "title": "Rides",
+                "createLabel": "Ride erstellen",
+                "createOrEditLabel": "Ride erstellen oder bearbeiten",
+                "search": "Suche nach Ride"
+            },
+            "created": "Ride erstellt mit ID {{ param }}",
+            "updated": "Ride aktualisiert mit ID {{ param }}",
+            "deleted": "Ride gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Ride {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Ride"
+            },
+            "driverId": "Driver Id",
+            "startDateTime": "Start Date Time",
+            "flexibleStartPlace": "Flexible Start Place",
+            "flexibleEndPlace": "Flexible End Place",
+            "price": "Price",
+            "numberOfSeats": "Number Of Seats",
+            "description": "Description",
+            "createdAt": "Created At",
+            "deleted": "Deleted",
+            "startPlace": "Start Place",
+            "endPlace": "End Place",
+            "reservation": "Reservation"
+        }
+    }
+}

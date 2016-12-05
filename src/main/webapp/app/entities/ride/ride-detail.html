@@ -1,0 +1,63 @@
+
+<div>
+    <h2><span data-translate="gatewayApp.ride.detail.title">Ride</span> {{vm.ride.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="gatewayApp.ride.driverId">Driver Id</span></dt>
+        <dd>
+            <span>{{vm.ride.driverId}}</span>
+        </dd>
+        <dt><span data-translate="gatewayApp.ride.startDateTime">Start Date Time</span></dt>
+        <dd>
+            <span>{{vm.ride.startDateTime | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="gatewayApp.ride.flexibleStartPlace">Flexible Start Place</span></dt>
+        <dd>
+            <span>{{vm.ride.flexibleStartPlace}}</span>
+        </dd>
+        <dt><span data-translate="gatewayApp.ride.flexibleEndPlace">Flexible End Place</span></dt>
+        <dd>
+            <span>{{vm.ride.flexibleEndPlace}}</span>
+        </dd>
+        <dt><span data-translate="gatewayApp.ride.price">Price</span></dt>
+        <dd>
+            <span>{{vm.ride.price}}</span>
+        </dd>
+        <dt><span data-translate="gatewayApp.ride.numberOfSeats">Number Of Seats</span></dt>
+        <dd>
+            <span>{{vm.ride.numberOfSeats}}</span>
+        </dd>
+        <dt><span data-translate="gatewayApp.ride.description">Description</span></dt>
+        <dd>
+            <span>{{vm.ride.description}}</span>
+        </dd>
+        <dt><span data-translate="gatewayApp.ride.createdAt">Created At</span></dt>
+        <dd>
+            <span>{{vm.ride.createdAt | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="gatewayApp.ride.deleted">Deleted</span></dt>
+        <dd>
+            <span>{{vm.ride.deleted}}</span>
+        </dd>
+        <dt><span data-translate="gatewayApp.ride.startPlace">Start Place</span></dt>
+        <dd>
+            <a ui-sref="place-detail({id:vm.ride.startPlace.id})">{{vm.ride.startPlace.id}}</a>
+        </dd>
+        <dt><span data-translate="gatewayApp.ride.endPlace">End Place</span></dt>
+        <dd>
+            <a ui-sref="place-detail({id:vm.ride.endPlace.id})">{{vm.ride.endPlace.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="ride-detail.edit({id:vm.ride.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

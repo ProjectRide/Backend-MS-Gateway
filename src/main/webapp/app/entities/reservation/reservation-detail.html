@@ -1,0 +1,35 @@
+
+<div>
+    <h2><span data-translate="gatewayApp.reservation.detail.title">Reservation</span> {{vm.reservation.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="gatewayApp.reservation.passengerId">Passenger Id</span></dt>
+        <dd>
+            <span>{{vm.reservation.passengerId}}</span>
+        </dd>
+        <dt><span data-translate="gatewayApp.reservation.confirmed">Confirmed</span></dt>
+        <dd>
+            <span>{{vm.reservation.confirmed}}</span>
+        </dd>
+        <dt><span data-translate="gatewayApp.reservation.cancled">Cancled</span></dt>
+        <dd>
+            <span>{{vm.reservation.cancled}}</span>
+        </dd>
+        <dt><span data-translate="gatewayApp.reservation.ride">Ride</span></dt>
+        <dd>
+            <a ui-sref="ride-detail({id:vm.reservation.ride.id})">{{vm.reservation.ride.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="reservation-detail.edit({id:vm.reservation.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

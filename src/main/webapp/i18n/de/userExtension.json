@@ -1,0 +1,30 @@
+{
+    "gatewayApp": {
+        "userExtension" : {
+            "home": {
+                "title": "User Extensions",
+                "createLabel": "User Extension erstellen",
+                "createOrEditLabel": "User Extension erstellen oder bearbeiten",
+                "search": "Suche nach User Extension"
+            },
+            "created": "User Extension erstellt mit ID {{ param }}",
+            "updated": "User Extension aktualisiert mit ID {{ param }}",
+            "deleted": "User Extension gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll User Extension {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "User Extension"
+            },
+            "sex": "Sex",
+            "birthdate": "Birthdate",
+            "memberSince": "Member Since",
+            "firstName": "First Name",
+            "lastName": "Last Name",
+            "phoneNumber": "Phone Number",
+            "image": "Image",
+            "aboutMe": "About Me",
+            "userId": "User Id"
+        }
+    }
+}

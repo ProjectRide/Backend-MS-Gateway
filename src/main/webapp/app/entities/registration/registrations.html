@@ -1,0 +1,64 @@
+<div>
+    <h2 data-translate="gatewayApp.registration.home.title">Registrations</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="registration.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="gatewayApp.registration.home.createLabel">
+                        Create new Registration
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span data-translate="global.field.id">ID</span></th>
+                    <th><span data-translate="gatewayApp.registration.approved">Approved</span></th>
+                    <th><span data-translate="gatewayApp.registration.canceld">Canceld</span></th>
+                    <th><span data-translate="gatewayApp.registration.passengerId">Passenger Id</span></th>
+                    <th><span data-translate="gatewayApp.registration.ride">Ride</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="registration in vm.registrations track by registration.id">
+                    <td><a ui-sref="registration-detail({id:registration.id})">{{registration.id}}</a></td>
+                    <td>{{registration.approved}}</td>
+                    <td>{{registration.canceld}}</td>
+                    <td>{{registration.passengerId}}</td>
+                    <td>
+                        <a ui-sref="ride-detail({id:registration.ride.id})">{{registration.ride.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="registration-detail({id:registration.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="registration.edit({id:registration.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="registration.delete({id:registration.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+{
+    "gatewayApp": {
+        "registration" : {
+            "home": {
+                "title": "Registrations",
+                "createLabel": "Registration erstellen",
+                "createOrEditLabel": "Registration erstellen oder bearbeiten",
+                "search": "Suche nach Registration"
+            },
+            "created": "Registration erstellt mit ID {{ param }}",
+            "updated": "Registration aktualisiert mit ID {{ param }}",
+            "deleted": "Registration gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Registration {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Registration"
+            },
+            "approved": "Approved",
+            "canceld": "Canceld",
+            "passengerId": "Passenger Id",
+            "ride": "Ride"
+        }
+    }
+}

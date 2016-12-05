@@ -1,0 +1,114 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myRideLabel" data-translate="gatewayApp.ride.home.createOrEditLabel">Create or edit a Ride</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.ride.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.ride.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="gatewayApp.ride.driverId" for="field_driverId">Driver Id</label>
+            <input type="number" class="form-control" name="driverId" id="field_driverId"
+                    ng-model="vm.ride.driverId"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="gatewayApp.ride.startDateTime" for="field_startDateTime">Start Date Time</label>
+                <div class="input-group">
+                    <input id="field_startDateTime" type="text" class="form-control" name="startDateTime" datetime-picker="{{dateformat}}" ng-model="vm.ride.startDateTime" is-open="vm.datePickerOpenStatus.startDateTime"
+                      />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('startDateTime')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="gatewayApp.ride.flexibleStartPlace" for="field_flexibleStartPlace">Flexible Start Place</label>
+            <input type="number" class="form-control" name="flexibleStartPlace" id="field_flexibleStartPlace"
+                    ng-model="vm.ride.flexibleStartPlace"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="gatewayApp.ride.flexibleEndPlace" for="field_flexibleEndPlace">Flexible End Place</label>
+            <input type="number" class="form-control" name="flexibleEndPlace" id="field_flexibleEndPlace"
+                    ng-model="vm.ride.flexibleEndPlace"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="gatewayApp.ride.price" for="field_price">Price</label>
+            <input type="number" class="form-control" name="price" id="field_price"
+                    ng-model="vm.ride.price"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="gatewayApp.ride.numberOfSeats" for="field_numberOfSeats">Number Of Seats</label>
+            <input type="number" class="form-control" name="numberOfSeats" id="field_numberOfSeats"
+                    ng-model="vm.ride.numberOfSeats"
+                    min="1" max="7" />
+            <div ng-show="editForm.numberOfSeats.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.numberOfSeats.$error.min" data-translate="entity.validation.min" translate-value-min="1">
+                    This field should be more than 1.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.numberOfSeats.$error.max" data-translate="entity.validation.max" translate-value-max="7">
+                    This field cannot be more than 7.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.numberOfSeats.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="gatewayApp.ride.description" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                    ng-model="vm.ride.description"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="gatewayApp.ride.createdAt" for="field_createdAt">Created At</label>
+                <div class="input-group">
+                    <input id="field_createdAt" type="text" class="form-control" name="createdAt" datetime-picker="{{dateformat}}" ng-model="vm.ride.createdAt" is-open="vm.datePickerOpenStatus.createdAt"
+                      />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('createdAt')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="gatewayApp.ride.deleted" for="field_deleted">Deleted</label>
+            <input type="checkbox" class="form-control" name="deleted" id="field_deleted"
+                    ng-model="vm.ride.deleted"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label data-translate="gatewayApp.ride.startPlace" for="field_startPlace">Start Place</label>
+            <select class="form-control" id="field_startPlace" name="startPlace" ng-model="vm.ride.startPlace" ng-options="place as place.id for place in vm.startplaces | orderBy:'id' track by place.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label data-translate="gatewayApp.ride.endPlace" for="field_endPlace">End Place</label>
+            <select class="form-control" id="field_endPlace" name="endPlace" ng-model="vm.ride.endPlace" ng-options="place as place.id for place in vm.endplaces | orderBy:'id' track by place.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,129 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myUserExtensionLabel" data-translate="gatewayApp.userExtension.home.createOrEditLabel">Create or edit a User Extension</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.userExtension.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.userExtension.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="gatewayApp.userExtension.sex" for="field_sex">Sex</label>
+            <select class="form-control" name="sex" ng-model="vm.userExtension.sex" id="field_sex" required>
+                <option value="MALE" data-translate="gatewayApp.Sex.MALE">MALE</option>
+                <option value="FEMALE" data-translate="gatewayApp.Sex.FEMALE">FEMALE</option>
+            </select>
+            <div ng-show="editForm.sex.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.sex.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="gatewayApp.userExtension.birthdate" for="field_birthdate">Birthdate</label>
+                <div class="input-group">
+                    <input id="field_birthdate" type="text" class="form-control" name="birthdate" uib-datepicker-popup="{{dateformat}}" ng-model="vm.userExtension.birthdate" is-open="vm.datePickerOpenStatus.birthdate"
+                    required/>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('birthdate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            <div ng-show="editForm.birthdate.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.birthdate.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="gatewayApp.userExtension.memberSince" for="field_memberSince">Member Since</label>
+                <div class="input-group">
+                    <input id="field_memberSince" type="text" class="form-control" name="memberSince" datetime-picker="{{dateformat}}" ng-model="vm.userExtension.memberSince" is-open="vm.datePickerOpenStatus.memberSince"
+                      />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('memberSince')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="gatewayApp.userExtension.firstName" for="field_firstName">First Name</label>
+            <input type="text" class="form-control" name="firstName" id="field_firstName"
+                    ng-model="vm.userExtension.firstName"
+                    required />
+            <div ng-show="editForm.firstName.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.firstName.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="gatewayApp.userExtension.lastName" for="field_lastName">Last Name</label>
+            <input type="text" class="form-control" name="lastName" id="field_lastName"
+                    ng-model="vm.userExtension.lastName"
+                    required />
+            <div ng-show="editForm.lastName.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.lastName.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="gatewayApp.userExtension.phoneNumber" for="field_phoneNumber">Phone Number</label>
+            <input type="text" class="form-control" name="phoneNumber" id="field_phoneNumber"
+                    ng-model="vm.userExtension.phoneNumber"
+                     />
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setImage($file, vm.userExtension)" ngf-pattern="'image/*'">
+            <label class="control-label" data-translate="gatewayApp.userExtension.image" for="field_image">Image</label>
+            <div>
+                <img data-ng-src="{{'data:' + vm.userExtension.imageContentType + ';base64,' + vm.userExtension.image}}" style="max-height: 100px;" ng-if="vm.userExtension.image"/>
+                <div ng-if="vm.userExtension.image" class="help-block clearfix">
+                    <span class="pull-left">{{vm.userExtension.imageContentType}}, {{vm.byteSize(vm.userExtension.image)}}</span>
+                    <button type="button" ng-click="vm.userExtension.image=null;vm.userExtension.imageContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="button" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setImage($file, vm.userExtension)" accept="image/*" data-translate="entity.action.addimage">
+                    Add image
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="image" id="field_image"
+                    ng-model="vm.userExtension.image"
+                     />
+            <input type="hidden" class="form-control" name="imageContentType" id="field_imageContentType"
+                    ng-model="vm.userExtension.imageContentType" />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="gatewayApp.userExtension.aboutMe" for="field_aboutMe">About Me</label>
+            <input type="text" class="form-control" name="aboutMe" id="field_aboutMe"
+                    ng-model="vm.userExtension.aboutMe"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="gatewayApp.userExtension.userId" for="field_userId">User Id</label>
+            <input type="number" class="form-control" name="userId" id="field_userId"
+                    ng-model="vm.userExtension.userId"
+                     />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

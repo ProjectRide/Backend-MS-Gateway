@@ -1,0 +1,25 @@
+{
+    "gatewayApp": {
+        "reservation" : {
+            "home": {
+                "title": "Reservations",
+                "createLabel": "Reservation erstellen",
+                "createOrEditLabel": "Reservation erstellen oder bearbeiten",
+                "search": "Suche nach Reservation"
+            },
+            "created": "Reservation erstellt mit ID {{ param }}",
+            "updated": "Reservation aktualisiert mit ID {{ param }}",
+            "deleted": "Reservation gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Reservation {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Reservation"
+            },
+            "passengerId": "Passenger Id",
+            "confirmed": "Confirmed",
+            "cancled": "Cancled",
+            "ride": "Ride"
+        }
+    }
+}

@@ -1,0 +1,35 @@
+
+<div>
+    <h2><span data-translate="gatewayApp.registration.detail.title">Registration</span> {{vm.registration.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="gatewayApp.registration.approved">Approved</span></dt>
+        <dd>
+            <span>{{vm.registration.approved}}</span>
+        </dd>
+        <dt><span data-translate="gatewayApp.registration.canceld">Canceld</span></dt>
+        <dd>
+            <span>{{vm.registration.canceld}}</span>
+        </dd>
+        <dt><span data-translate="gatewayApp.registration.passengerId">Passenger Id</span></dt>
+        <dd>
+            <span>{{vm.registration.passengerId}}</span>
+        </dd>
+        <dt><span data-translate="gatewayApp.registration.ride">Ride</span></dt>
+        <dd>
+            <a ui-sref="ride-detail({id:vm.registration.ride.id})">{{vm.registration.ride.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="registration-detail.edit({id:vm.registration.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>
